@@ -1,5 +1,7 @@
 # w3up-examples
 
+This repo contains runnable examples for using w3up in a variety of use cases.
+
 ## Usage
 
 Install the `w3cli`:
