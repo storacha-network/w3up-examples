@@ -8,7 +8,12 @@ import * as Delegation from '@web3-storage/w3up-client/delegation'
 import { Signer } from '@web3-storage/w3up-client/principal/ed25519'
 import * as dagJSON from '@ipld/dag-json'
 import * as DID from '@ipld/dag-ucan/did'
+import * as Link from 'multiformats/link'
+import * as Digest from 'multiformats/hashes/digest'
 import { SERVER_PORT, PRIVATE_KEY, PROOF } from '../env.js'
+
+// https://github.com/multiformats/multicodec/blob/8fc4918c9e7c6cb8f1d0501523d5a0943c46a157/table.csv#L142
+const CAR_CODE = 0x0202
 
 /**
  * @typedef {{
@@ -74,6 +79,8 @@ const server = http.createServer(async (req, res) => {
     for (const { can, nb } of delegationReq.caps) {
       console.log(can, nb)
       if (can === Caps.Blob.add.can) {
+        const cid = Link.create(CAR_CODE, Digest.decode(nb.blob.digest))
+        console.log(`storing CAR ${cid} (${nb.blob.size} bytes)`)
         totalSize += nb.blob.size
       }
     }
