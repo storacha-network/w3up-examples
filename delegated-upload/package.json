@@ -16,7 +16,7 @@
   "dependencies": {
     "@ipld/dag-json": "^10.2.1",
     "@web3-storage/capabilities": "^17.2.0",
-    "@web3-storage/upload-client": "^17.0.0-rc.2",
+    "@web3-storage/upload-client": "^17.0.0",
     "@web3-storage/w3up-client": "^15.0.0",
     "multiformats": "^13.1.1"
   },

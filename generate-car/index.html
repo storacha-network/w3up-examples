@@ -1,0 +1,24 @@
+<!doctype html>
+
+<form>
+  <div style="margin-bottom: 1em">
+    <label for="file">File:</label>
+    <input name="files" type="file" multiple/>
+  </div>
+  <fieldset style="margin-bottom: 1em; max-width: 10em">
+    <legend>Options</legend>
+    <div style="margin-bottom: 1em">
+      <label><input name="wrap" type="checkbox"/> Wrap in directory</label>
+    </div>
+    <div>
+      CID version<br/>
+      <label><input type="radio" name="version" value="1" checked/> 1</label><br/>
+      <label><input type="radio" name="version" value="0"/> 0 (legacy)</label>
+    </div>
+  </fieldset>
+  <button type="submit">Submit</button>
+</form>
+
+<pre id="out"></pre>
+
+<script src="./bundle.js"></script>
